@@ -37,7 +37,7 @@ function townWather(url,program) {
         let today  = da.weather[0].today
         let now = da.weather[0].now
         let future =da.weather[0].future
-        let last_update =da.weather[0].last_update.toLocaleString().replace(/T/,' ⏲ ').replace("+08:00","").replace(/^/,"🔠");
+        let last_update =da.weather[0].last_update.toLocaleString().replace(/T/,' ⏲  ').replace("+08:00","").replace(/^/,"🔠  ");
         var table = new Table({
             chars: { 'top': '═' , 'top-mid': '╤' , 'top-left': '╔' , 'top-right': '╗'
                     , 'bottom': '═' , 'bottom-mid': '╧' , 'bottom-left': '╚' , 'bottom-right': '╝'
@@ -58,17 +58,17 @@ function townWather(url,program) {
          */
 
       console.log(`
-  📅${future[0].date} ${future[0].day}
+  📅  ${future[0].date} ${future[0].day}
 
-  🐚${da.weather[0].city_name}:${weatherSign[da.weather[0].now.text] || "🔆"}
+  🐚  ${da.weather[0].city_name}:${weatherSign[da.weather[0].now.text] || "🔆"}
 
-  🌅:${today.sunrise}    🌄:${today.sunset}
+  🌅: ${today.sunrise}    🌄: ${today.sunset}
 
   pm2.5:${now.air_quality.city.pm25}
   空气质量:${now.air_quality.city.quality}
   空气质量指数:${now.air_quality.city.aqi}
 
-  🌡:${now.temperature}°C    🍃:${future[0].wind}
+  🌡:  ${now.temperature}°C    🍃  :${future[0].wind}
   ${ program.detail && table.toString() || ""}
   最近更新时间： ${last_update}
       `);
